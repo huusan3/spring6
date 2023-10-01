@@ -1,0 +1,44 @@
+package com.yb.spring6.aop.example;
+
+/**
+ * ClassName: CalculatorStaticProxy
+ * Package: com.yb.spring6.aop.example
+ * Description:
+ *
+ * @Author yang
+ * @Create 2023/7/4 16:54
+ * @Version
+ */
+//静态代理
+public class CalculatorStaticProxy implements Calculator{
+    //通过构造器将被代理的目标对象传递过来
+    private Calculator calculator;
+    public CalculatorStaticProxy(Calculator calculator){
+        this.calculator = calculator;//目标对象
+    }
+
+    @Override
+    public int add(int i, int j) {
+        //输出日志
+        System.out.println("[日志] add 方法开始了，参数是：" + i + "," + j);
+        //调用目标对象的方法实现核心业务
+        int addResult = calculator.add(i, j);
+        System.out.println("[日志] add 方法结束了，结果是：" + addResult);
+        return addResult;
+    }
+
+    @Override
+    public int sub(int i, int j) {
+        return 0;
+    }
+
+    @Override
+    public int mul(int i, int j) {
+        return 0;
+    }
+
+    @Override
+    public int div(int i, int j) {
+        return 0;
+    }
+}
