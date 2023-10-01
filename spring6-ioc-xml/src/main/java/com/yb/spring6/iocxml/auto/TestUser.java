@@ -20,5 +20,6 @@ public class TestUser {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-auto.xml");
         UserController controller = context.getBean("userController", UserController.class);
         controller.addUser();
+
     }
 }
